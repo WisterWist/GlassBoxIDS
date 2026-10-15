@@ -16,7 +16,8 @@ Designed to run natively on Windows 11 without the heavy memory overhead of Linu
 
 ## 📸 Dashboard Preview
 
-<!-- 💡 TIP: Drag and drop your screenshots directly below this line in the GitHub web editor! -->
+<img width="1036" height="711" alt="image" src="https://github.com/user-attachments/assets/e51b7ae0-6f32-417f-add8-8a768bae45ba" />
+
 
 
 ---
@@ -50,12 +51,38 @@ Designed to run natively on Windows 11 without the heavy memory overhead of Linu
 
 ## 🗂️ Project Architecture
 
-```text
-GlassBoxIDS/
-├── main.py                # Application entry point & controller wiring
-├── sniffer.py             # Asynchronous Scapy Npcap promiscuous packet sniffer
-├── detector.py            # Rolling-window heuristic engine & enterprise noise filter
-├── ui.py                  # 4-view CustomTkinter dark-mode desktop interface
-├── tutor.py               # Asynchronous Gemini REST client with exponential backoff
-├── config.example.json    # Safe configuration template for BYOK Gemini API key
-└── logo.webp              # Dashboard visual branding asset
+* `main.py` — Application entry point & controller wiring
+* `sniffer.py` — Asynchronous Scapy Npcap promiscuous packet sniffer
+* `detector.py` — Rolling-window heuristic engine & enterprise noise filter
+* `ui.py` — 4-view CustomTkinter dark-mode desktop interface
+* `tutor.py` — Asynchronous Gemini REST client with exponential backoff
+* `config.example.json` — Safe configuration template for BYOK Gemini API key
+* `logo.webp` — Dashboard visual branding asset
+
+---
+
+## ⚙️ Prerequisites & Installation
+
+* **OS:** Windows 10 / 11
+* **Python:** Python 3.10+ (Tested on Python 3.14)
+* **Packet Capture Driver:** Install [**Npcap**](https://npcap.com/) *(Check **"Install Npcap in WinPcap API-compatible Mode"** during installation)*.
+* **Install Dependencies:** `pip install scapy customtkinter pillow`
+* **Launch Dashboard (Run PowerShell as Administrator):** `python main.py`
+
+---
+
+## 📊 Resource Benchmark (Host vs. Virtualized Lab)
+
+| Environment Configuration | Operational State | Host RAM Consumed | CPU Utilization |
+| :--- | :--- | :--- | :--- |
+| **Kali Linux VM (Snort Control Baseline)** | Idle / Active Monitoring | ~2,000+ MB | High |
+| **Glass-Box IDS (Native Windows 11)** | Idle | ~70.3 MB | 0.0% |
+| **Glass-Box IDS (Native Windows 11)** | Active (Under 500-pkt SYN Flood) | ~76.9 MB | 1.2% |
+
+---
+
+## 👨‍💻 Author
+
+**Muhammad Arif Bin Azman**  
+Bachelor of Computer Science (Cyber Security) (Hons.)  
+Universiti Tenaga Nasional (UNITEN)
