@@ -71,6 +71,20 @@ Designed to run natively on Windows 11 without the heavy memory overhead of Linu
 
 ---
 
+## 📊 Splunk SIEM Ingestion & Triage (`_json` / `SPL`)
+Glass-Box IDS outputs structured JSON telemetry ready for direct ingestion into **Splunk Enterprise**. 
+
+### 1. Parsed JSON Telemetry & Field Extraction
+<img width="1908" height="909" alt="image" src="https://github.com/user-attachments/assets/e8740a61-61c2-47a6-81a4-80f4beff33e3" />
+
+
+### 2. Automated SOC Alert Aggregation via SPL
+```spl
+source="glassbox_alerts.json" | spath | stats count as "Total Alerts", sum(packet_count) as "Total Packets", values(alert_type) as "Detected Signatures", values(severity) as "Severity" by src_ip, dst_ip
+```
+<img width="1919" height="475" alt="image" src="https://github.com/user-attachments/assets/7eeb8119-71f9-4dd0-bfdc-784182686f87" />
+
+
 ## 📊 Resource Benchmark (Host vs. Virtualized Lab)
 
 | Environment Configuration | Operational State | Host RAM Consumed | CPU Utilization |
